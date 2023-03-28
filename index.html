@@ -10,22 +10,25 @@
 </head>
 
 <body>
-    <div class="container taskList">
-        <div class="themeToogle">
-            <button class="themeToogleBtn"></button>
+    <div class="container taskListEmpty">
+        <div class="header">
+            <div class="themeToogle">
+                <button class="themeToogleBtn"></button>
+            </div>
+
+            <span class="heading">My Day</span>
         </div>
-        
-        <span class="heading">My Day</span>
 
         <div class="tasks">
             <ul id="tasksList"></ul>
         </div>
 
-        <form id="newTaskForm">
-            <input type="text" name="newTaskInput" id="newTaskInput" placeholder="Create New Task" value="" />
-            <button id="newTaskInputBtn" type="submit"></button>
-        </form>
-
+        <div class="footer">
+            <form id="newTaskForm">
+                <input type="text" name="newTaskInput" id="newTaskInput" placeholder="Create New Task" value="" />
+                <button id="newTaskInputBtn" type="submit"></button>
+            </form>
+        </div>
     </div>
 
     <script src="main.js"></script>

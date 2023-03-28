@@ -1,0 +1,231 @@
+:root {
+    --color-white: white;
+    --color-black: black;
+    --theme-btn: url('assets/Dark-theme-btn.svg');
+    --container-bg: url('./assets/Light-empty.svg');
+    --complete-icon: url('assets/complete.svg');
+    /* --filter: none;
+    --theme-transition: 0s; */
+
+}
+
+*{
+    font-family: 'Times New Roman', Times, serif;
+    outline: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* overflow: hidden; */
+}
+
+.container{
+    position: relative;
+    border: 4px var(--color-black) solid;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 80vh;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--color-white);
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.heading {
+    font-weight: 900;
+    color: var(--color-black);
+}
+
+.themeToogle {
+    text-align: right;
+    margin-right: -15px;
+}
+
+.themeToogleBtn {
+    min-width: 30px;
+    min-height: 30px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-image: var(--theme-btn);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.themeToogleBtn:hover {
+    background-size: 85%;
+    transition: 0.5s;
+    transform: rotate(90deg);
+}
+
+.heading {
+    font-size: 30px;
+}
+
+.tasks {
+    margin: 20px 0px;
+    overflow: hidden;
+    padding-right: 15p;
+}
+
+#tasksList {
+    padding: 0px;
+}
+
+.taskListEmpty {
+    transition: 0s;
+    background-position: center;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-image: var(--container-bg);
+
+}
+
+.taskItem {
+    list-style-type: none;
+    border: 1px var(--color-black) solid;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.taskItem:hover {
+    transition: 0.5s;
+    /* border: 1px rgba(148, 148, 148, 0.63) solid; */
+    cursor: pointer;
+    background-color:rgba(226, 226, 226, 0.192);
+
+}
+
+.taskCheckBtn {
+    width: 10px;
+    height: 10px;
+    margin-right: 16px;
+    padding: 3px;
+    border: 2px var(--color-black) solid;
+    /* color: var(--primary-color); */
+    background-position: center;
+    background-size: contain;
+    border-radius: 50%;
+    border: 2px grey solid;
+    cursor: pointer;
+}
+
+.taskCheckBtn:hover {
+    background-image: url('assets/complete.svg');
+    /* opacity: 0.5; */
+    filter: none;
+
+}
+
+.taskBio {
+    font-size: 18px;
+}
+
+
+
+.task-completed {
+    transition: 0.5s;
+    transform: scale(90%);
+    text-decoration: line-through;
+    color: rgb(150, 150, 150);
+    opacity: 0;
+
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    padding: 15px 10px;
+    min-width: 100%;
+    background-color: var(--color-black);
+    left: 0px;
+    border: 5px var(--color-black) solid;
+}
+
+.footer form {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+#newTaskInput {
+    min-width: 250px;
+    margin-right: 40px;
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px white solid;
+}
+
+#newTaskInput::placeholder {
+    color: rgba(255, 255, 255, 0.589);
+    font-size: 20px;
+    font-family: "Times New Roman";
+}
+
+#newTaskInputBtn {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    background-image: url('./assets/new.svg');
+    background-repeat: no-repeat;
+    background-size: 80%;
+    cursor: pointer;
+}
+#newTaskInputBtn:hover {
+    transition: 0.3s;
+    transform:scale(1.1);
+}
+
+.taskCompleted {
+    visibility: hidden;
+}
+
+@media screen and (max-width : 600px) {
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        align-items: flex-start;
+        height: 100vh;
+        background-color: var(--color-white);
+
+    }
+
+    .themeToogle {
+        margin-top: 30px;
+
+    }
+
+    .container {
+        border: none;
+        border-radius: 0px;
+        width: 100%;
+        height: 93vh;
+        padding: 0px 20px;
+    }
+
+    #newTaskInput {
+        margin-right: 20px;
+    }
+}
