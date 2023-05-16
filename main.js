@@ -13,9 +13,9 @@ if (getData) {
   container.classList.remove("task_list_empty");
 }
 
+// saving to localStorage
 taskForm.addEventListener("submit", function (e) {
   e.preventDefault();
-
   let newtaskInputValue = taskForm.elements.new_task_input;
   formData.push(newtaskInputValue.value);
   localStorage.setItem("todo", JSON.stringify(formData));
@@ -23,51 +23,36 @@ taskForm.addEventListener("submit", function (e) {
   location.reload();
 });
 
+// showing from localStorage
 formData.map((data, index) => {
   const newTaskItem = document.createElement("li");
   newTaskItem.setAttribute("class", "task_item");
+  newTaskItem.setAttribute("data", index);
   tasksList.appendChild(newTaskItem);
 
+  //   check Button
   const newCheckBtn = document.createElement("div");
   newCheckBtn.setAttribute("class", "task_check_btn");
-  newCheckBtn.setAttribute("id", index);
+  newCheckBtn.setAttribute("id", "doneBtn");
   newTaskItem.appendChild(newCheckBtn);
 
-  const editBtn = document.createElement("div");
-  editBtn.setAttribute("class", "edit_btn");
-  editBtn.innerHTML = "Edit";
-  newTaskItem.appendChild(editBtn);
-
+  //   text from localStorage
   const newTaskBio = document.createElement("span");
   newTaskBio.setAttribute("class", "task_bio");
-
   newTaskBio.innerText = data;
   newTaskItem.appendChild(newTaskBio);
 });
 
-tasksList.addEventListener("click", (e) => {
-  //   console.log(e.target.id);
-  afterDelete = JSON.parse(getData);
-  afterDelete.splice(e.target.id, 1);
-  localStorage.setItem("todo", JSON.stringify(afterDelete));
-  location.reload();
-});
-
-// //   onTaskComplete(newCheckBtn);
-//   newCheckBtn[index].addEventListener("click", function (e) {
-//     let parent = e.target.parentElement;
-//     parent.classList.add("task_completed");
-
-//     setTimeout(() => {
-//       parent.remove();
-//     }, 400);
-
-//     if (tasksList.childNodes.length == 1) {
-//       setTimeout(() => {
-//         container.classList.add("task_list_empty");
-//       }, 800);
-//     }
-//   });
+// delete
+let doneBtn = document.getElementById("doneBtn");
+if (doneBtn) {
+  doneBtn.addEventListener("click", (e) => {
+    deleted = JSON.parse(getData);
+    deleted.splice(e.target.parentElement.data, 1);
+    localStorage.setItem("todo", JSON.stringify(deleted));
+    location.reload();
+  });
+}
 
 // dark mode
 themeBtn.addEventListener("click", function () {
