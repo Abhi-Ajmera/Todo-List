@@ -27,13 +27,12 @@ taskForm.addEventListener("submit", function (e) {
 formData.map((data, index) => {
   const newTaskItem = document.createElement("li");
   newTaskItem.setAttribute("class", "task_item");
-  newTaskItem.setAttribute("data", index);
   tasksList.appendChild(newTaskItem);
 
   //   check Button
   const newCheckBtn = document.createElement("div");
   newCheckBtn.setAttribute("class", "task_check_btn");
-  newCheckBtn.setAttribute("id", "doneBtn");
+  newCheckBtn.setAttribute("data-index", index);
   newTaskItem.appendChild(newCheckBtn);
 
   //   text from localStorage
@@ -44,15 +43,12 @@ formData.map((data, index) => {
 });
 
 // delete
-let doneBtn = document.getElementById("doneBtn");
-if (doneBtn) {
-  doneBtn.addEventListener("click", (e) => {
-    deleted = JSON.parse(getData);
-    deleted.splice(e.target.parentElement.data, 1);
-    localStorage.setItem("todo", JSON.stringify(deleted));
-    location.reload();
-  });
-}
+tasksList.addEventListener("click", (e) => {
+  deleted = JSON.parse(getData);
+  deleted.splice(e.target.dataset.index, 1);
+  localStorage.setItem("todo", JSON.stringify(deleted));
+  location.reload();
+});
 
 // dark mode
 themeBtn.addEventListener("click", function () {
