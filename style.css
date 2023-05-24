@@ -17,9 +17,35 @@
     outline: none;
 }
 
-body {
+body{
+    margin: 0;
+    padding: 0;
+    background-color: var(--task-color);
+}
+
+.heading {
+    font-weight: 900;
+    color: var(--text-color);
+}
+
+.navbar{
+    color: var(--text-color);
+    min-height: 10vh;
+    text-align: center; 
+    margin-bottom: 2vh;
+}
+
+.mainHeading{
+    font-weight: 900;
+}
+
+.subHeading{
+    font-weight: bold;
+}
+
+.main {
     display: flex;
-    min-height: 100vh;
+    min-height: 90vh;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -32,28 +58,18 @@ body {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: 80vh;
+    width: 60vw;
+    height: 88vh;
     border-radius: 20px;
     overflow: hidden;
     background: var(--primary-color);
     transition: var(--theme-transition);
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-}
-
-.heading {
-    font-weight: 900;
-    color: var(--text-color);
-}
-
 .theme_toogle {
     text-align: right;
-    margin-right: -15px;
-
+    margin-right: 2vw;
+    margin-bottom: 20px;
 }
 
 .theme_toogle_btn {
@@ -114,7 +130,6 @@ header {
 
 .task_item:hover {
     transition: 0.5s;
-    /* border: 1px rgba(148, 148, 148, 0.63) solid; */
     cursor: pointer;
     background-color:rgba(226, 226, 226, 0.192);
 
@@ -126,7 +141,7 @@ header {
     margin-right: 16px;
     padding: 3px;
     border: 2px var(--secondary-color) solid;
-    /* color: var(--primary-color); */
+    color: var(--primary-color);
     background-position: center;
     background-size: contain;
     border-radius: 50%;
@@ -156,24 +171,23 @@ header {
 
 }
 
-footer {
-    position: absolute;
-    bottom: 0px;
+.userInput {
+    position: relative;
+    top: 0px;
     padding: 15px 10px;
-    min-width: 100%;
     background-color: var(--footer-color);
-    left: 0px;
-    border: 5px var(--footer-color) solid;
+    border-radius: 14px;
 }
 
-footer form {
+.userInput form {
     display: flex;
     flex-direction: row;
     align-content: center;
+    justify-content: space-evenly;
 }
 
 #new_task_input {
-    min-width: 250px;
+    min-width: 34vw;
     margin-right: 40px;
     font-size: 20px;
     color: white;
@@ -205,7 +219,7 @@ footer form {
 
 @media screen and (max-width : 600px) {
 
-    body {
+    .main {
         margin: 0px;
         padding: 0px;
         align-items: flex-start;
@@ -216,6 +230,7 @@ footer form {
 
     .theme_toogle {
         margin-top: 30px;
+        margin-right: 20px;
 
     }
 

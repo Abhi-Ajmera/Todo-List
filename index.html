@@ -12,23 +12,33 @@
 </head>
 
 <body>
-    <div class="container task_list_empty">
-        <header>
-            <div class="theme_toogle">
-                <button class="theme_toogle_btn"></button>
+    <header>
+        <div class="navbar">
+            <h3 class="heading">Welcome, <span id="user">User</span></h3>
+            <p class="subHeading" id="subHeading">Let Make a List</p>
+            <p class="subHeading" id="date">24 March 2020</p>
+        </div>
+        <div class="theme_toogle">
+            <button class="theme_toogle_btn"></button>
+        </div>
+    </header>
+    <div class="main">
+        <div class="container task_list_empty">
+
+            <div class="userInput">
+                <form id="new_task_form">
+                    <input type="text" name="new_task_input" id="new_task_input" placeholder="Create New Task"
+                        value="" />
+                    <button id="new_task_input_btn" type="submit"></button>
+                </form>
             </div>
-            <span class="heading">My Day</span>
-        </header>
-        <section class="tasks">
-            <ul id="tasksList"></ul>
-        </section>
-        <footer>
-            <form id="new_task_form">
-                <input type="text" name="new_task_input" id="new_task_input" placeholder="Create New Task" value="" />
-                <button id="new_task_input_btn" type="submit"></button>
-            </form>
-        </footer>
+            <section class="tasks">
+                <ul id="tasksList"></ul>
+            </section>
+
+        </div>
     </div>
     <script src="main.js"></script>
 </body>
+
 </html>
