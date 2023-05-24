@@ -28,7 +28,7 @@ body{
     color: var(--text-color);
 }
 
-.navbar{
+.headerbar{
     color: var(--text-color);
     min-height: 10vh;
     text-align: center; 
@@ -64,6 +64,12 @@ body{
     overflow: hidden;
     background: var(--primary-color);
     transition: var(--theme-transition);
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+
 }
 
 .theme_toogle {
